@@ -68,6 +68,11 @@ public class EnterActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    private void goToOptionActivity(){
+        Intent intent = new Intent(getApplicationContext(), OptionActivity.class);
+        startActivity(intent);
+    }
+
     private void customProgressBar(){
         LayoutInflater factory = LayoutInflater.from(EnterActivity.this);
         final View dialogView = factory.inflate(R.layout.custom_dialog01, null);
@@ -192,6 +197,7 @@ public class EnterActivity extends AppCompatActivity implements View.OnClickList
                         if(idStr.equals(authResult.getUser().getEmail())){
                             activateProgress(false);
                             Toast.makeText(EnterActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
+                            goToOptionActivity();
                         }
                     }
                 })
@@ -213,6 +219,7 @@ public class EnterActivity extends AppCompatActivity implements View.OnClickList
                 if(idStr.equals(authResult.getUser().getEmail())){
                     activateProgress(false);
                     Toast.makeText(EnterActivity.this, "Signup Success", Toast.LENGTH_SHORT).show();
+                    goToOptionActivity();
                 }
 
             }
@@ -313,6 +320,7 @@ public class EnterActivity extends AppCompatActivity implements View.OnClickList
                             // ...
                             activateProgress(false);
                             Toast.makeText(EnterActivity.this, "Mobile Success", Toast.LENGTH_SHORT).show();
+                            goToOptionActivity();
                         } else {
                             // Sign in failed, display a message and update the UI
 //                            Log.w(TAG, "signInWithCredential:failure", task.getException());
