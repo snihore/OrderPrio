@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:padding="20dp">
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Madhya Pradesh"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="10dp"
+            android:clickable="false"
+            android:id="@+id/state_mp"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maharashtra"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="10dp"
+            android:clickable="false"
+            android:id="@+id/state_maharashtra"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Karnataka"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="10dp"
+            android:clickable="false"
+            android:id="@+id/state_karnataka"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tamil Nadu"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="10dp"
+            android:clickable="false"
+            android:id="@+id/state_tamil_nadu"/>
+
+    </RadioGroup>
+</RelativeLayout>
