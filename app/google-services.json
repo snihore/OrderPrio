@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "483020549773",
+    "firebase_url": "https://order-prio.firebaseio.com",
+    "project_id": "order-prio",
+    "storage_bucket": "order-prio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483020549773:android:08b52247a8e658f46bbcc4",
+        "android_client_info": {
+          "package_name": "com.orderprio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483020549773-a935n7hr2gisku0dkf7gqi9e56n0sn74.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.orderprio",
+            "certificate_hash": "1d281db21d896b59403f42d0671d9a137aa79bfc"
+          }
+        },
+        {
+          "client_id": "483020549773-e48n893rio0rtrnt6rgq59fmpn5k7jj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzxAhep21ItBeRxAop5nNJcGccc__Vw2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483020549773-e48n893rio0rtrnt6rgq59fmpn5k7jj7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
