@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShopRegistration"
-    android:background="#eaeaea">
+    android:background="#eaeaea"
+    tools:context=".ShopRegistration">
 
     <TextView
         android:id="@+id/layout02"

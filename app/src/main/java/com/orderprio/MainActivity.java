@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                Intent intent = new Intent(getApplicationContext(), EnterActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ShopDashboard.class);
                 startActivity(intent);
             }
 
