@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/round_bg06"
+        android:elevation="5dp"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/listview_item_cuisine_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:text=""
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/listview_item_cuisine_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_orange_light"
+            android:layout_gravity="center_horizontal"
+            android:text=""/>
+    </LinearLayout>
+
+
+</RelativeLayout>

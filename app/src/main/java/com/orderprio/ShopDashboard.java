@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 
 public class ShopDashboard extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout addMenuBtn;
+    private LinearLayout addMenuBtn, qrCodeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +20,13 @@ public class ShopDashboard extends AppCompatActivity implements View.OnClickList
 
         //click events ...
         addMenuBtn.setOnClickListener(this);
+        qrCodeBtn.setOnClickListener(this);
 
     }
 
     private void initViews() {
         addMenuBtn = (LinearLayout)findViewById(R.id.add_menu_layout_btn);
+        qrCodeBtn = (LinearLayout)findViewById(R.id.qr_code_layout_btn);
     }
 
     @Override
@@ -36,6 +38,10 @@ public class ShopDashboard extends AppCompatActivity implements View.OnClickList
 
             case R.id.add_menu_layout_btn :
                 intent = new Intent(getApplicationContext(), AddMenuActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.qr_code_layout_btn:
+                intent = new Intent(getApplicationContext(), ShopQRActivity.class);
                 startActivity(intent);
                 break;
         }

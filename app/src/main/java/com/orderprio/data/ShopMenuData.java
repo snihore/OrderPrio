@@ -9,6 +9,9 @@ public class ShopMenuData {
     private String cuisinePrice;
     private boolean cuisineAvailability;
 
+    public ShopMenuData() {
+    }
+
     public ShopMenuData(String cuisineName, String cuisinePrice, boolean cuisineAvailability) {
         this.cuisineName = cuisineName;
         this.cuisinePrice = cuisinePrice;

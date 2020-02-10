@@ -10,8 +10,14 @@ public class ShopRegistrationData {
     private String state;
     private String zipCode;
     private String country;
+    private String shopID;
+    private String uniqueID;
 
-    public ShopRegistrationData(String shopName, String address, String email, String mobile, String district, String state, String zipCode, String country) {
+    public ShopRegistrationData() {
+
+    }
+
+    public ShopRegistrationData(String shopName, String address, String email, String mobile, String district, String state, String zipCode, String country, String shopID) {
         this.shopName = shopName;
         this.address = address;
         this.email = email;
@@ -20,6 +26,16 @@ public class ShopRegistrationData {
         this.state = state;
         this.zipCode = zipCode;
         this.country = country;
+        this.shopID = shopID;
+        this.uniqueID = "";
+    }
+
+    public String getUniqueID() {
+        return uniqueID;
+    }
+
+    public void setUniqueID(String uniqueID) {
+        this.uniqueID = uniqueID;
     }
 
     public String getShopName() {
@@ -84,5 +100,13 @@ public class ShopRegistrationData {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getShopID() {
+        return shopID;
+    }
+
+    public void setShopID(String shopID) {
+        this.shopID = shopID;
     }
 }

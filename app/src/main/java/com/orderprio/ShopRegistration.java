@@ -21,7 +21,6 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.orderprio.data.ShopRegistrationData;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,9 +31,10 @@ public class ShopRegistration extends AppCompatActivity implements View.OnClickL
     private Button submitBtn;
     private AlertDialog stateDialogState, stateDialogCountry, dialog;
     private FirebaseAuth mAuth;
+    private DocumentReference documentReference = FirebaseFirestore.getInstance().collection("OrderPrio").document("Shop");
 
-    public String SHOP_REGISTRATION_KEY = "SHOP_REGISTRATION_KEY";
-    public String USER_NAME = "NO_USER";
+    private String SHOP_REGISTRATION_DATA = "SHOP_REGISTRATION_DATA";
+    private String SHOP_UUID = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +59,19 @@ public class ShopRegistration extends AppCompatActivity implements View.OnClickL
             String phoneNumber = mAuth.getCurrentUser().getPhoneNumber();
             String email = mAuth.getCurrentUser().getEmail();
 
-            if(phoneNumber != null){
+            if(phoneNumber != null && !phoneNumber.matches("")){
                 mobileEditText.setText(phoneNumber);
-                USER_NAME = phoneNumber;
+                if(SHOP_UUID == null){
+                    SHOP_UUID = phoneNumber;
+                }
             }
-            if(email != null){
+            if(email != null && !email.matches("")){
                 emailEditText.setText(email);
-                USER_NAME = email;
+                if(SHOP_UUID == null){
+                    SHOP_UUID = email;
+                }
             }
+
         }
     }
 
@@ -162,7 +167,8 @@ public class ShopRegistration extends AppCompatActivity implements View.OnClickL
                 district,
                 state,
                 zipCode,
-                country
+                country,
+                SHOP_UUID
         );
 
         add(data);
@@ -172,20 +178,10 @@ public class ShopRegistration extends AppCompatActivity implements View.OnClickL
     private void add(ShopRegistrationData data) {
 
         activateProgress(true);
-        CollectionReference collection = FirebaseFirestore.getInstance().collection("ShopRegistrationData");
 
-        Map<String, ShopRegistrationData> map = new HashMap<>();
-        map.put(SHOP_REGISTRATION_KEY, data);
+        DocumentReference reference = documentReference.collection(SHOP_UUID).document("RegistrationData");
 
-        DocumentReference documentReference;
-
-        if(USER_NAME.equals("NO_USER")){
-            documentReference = collection.document();
-        }else {
-            documentReference = collection.document(USER_NAME);
-        }
-
-        documentReference.set(map)
+        reference.set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

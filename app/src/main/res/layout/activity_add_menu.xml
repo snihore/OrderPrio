@@ -4,8 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     tools:context=".AddMenuActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/layout06"
+        android:elevation="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:fontFamily="monospace"
+            android:textColor="@android:color/white"
+            android:text="Add Item"/>
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/add_menu_listview"
+        android:layout_below="@+id/layout06"
+        android:layout_above="@+id/layout05"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +37,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="30dp"
-        android:background="#eaeaea"
+        android:background="@color/colorPrimaryDark"
         android:elevation="5dp"
         android:id="@+id/layout05">
 
@@ -29,11 +50,11 @@
             android:textColor="@android:color/black"
             android:fontFamily="monospace"
             android:inputType="textShortMessage"
-            android:background="@drawable/round_bg02"
+            android:background="@drawable/round_bg04"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_marginBottom="10dp"/>
         <EditText
             android:id="@+id/menu_cuisine_price"
@@ -44,11 +65,11 @@
             android:textColor="@android:color/black"
             android:fontFamily="monospace"
             android:inputType="textShortMessage"
-            android:background="@drawable/round_bg02"
+            android:background="@drawable/round_bg04"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_marginBottom="10dp"/>
 
         <RelativeLayout
@@ -60,9 +81,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:textColor="@android:color/white"
-                android:background="@color/colorPrimaryDark"
+                android:background="@drawable/round_bg05"
                 android:textSize="15sp"
                 android:text="Add"
+                android:textStyle="bold"
                 android:layout_centerVertical="true"
                 android:layout_alignParentStart="true"/>
             <TextView
@@ -70,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="@color/colorGrey"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="italic"
                 android:layout_alignParentEnd="true"
