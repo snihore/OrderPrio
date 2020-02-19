@@ -133,6 +133,7 @@
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal">
             <LinearLayout
+                android:id="@+id/settings_layout_btn"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:orientation="vertical"

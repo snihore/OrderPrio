@@ -71,6 +71,7 @@ public class EnterActivity extends AppCompatActivity implements View.OnClickList
     private void goToOptionActivity(){
         Intent intent = new Intent(getApplicationContext(), OptionActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void customProgressBar(){

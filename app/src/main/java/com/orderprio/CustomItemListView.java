@@ -47,7 +47,7 @@ public class CustomItemListView extends BaseAdapter {
         if(list != null){
             ShopMenuData shopMenuData = this.list.get(i);
             if(shopMenuData != null){
-                cuisineName.setText(shopMenuData.getCuisineName());
+                cuisineName.setText(shopMenuData.getCuisineName().toUpperCase());
                 cuisinePrice.setText("\u20B9 "+shopMenuData.getCuisinePrice());
             }
         }

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddMenuActivity">
+    tools:context=".AddMenuActivity"
+    android:background="@android:color/white">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -34,11 +35,7 @@
         android:orientation="vertical"
         android:padding="20dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="30dp"
         android:background="@color/colorPrimaryDark"
-        android:elevation="5dp"
         android:id="@+id/layout05">
 
         <EditText
@@ -55,7 +52,8 @@
             android:paddingBottom="10dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"/>
         <EditText
             android:id="@+id/menu_cuisine_price"
             android:layout_width="match_parent"
@@ -70,7 +68,8 @@
             android:paddingBottom="10dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -86,7 +85,7 @@
                 android:text="Add"
                 android:textStyle="bold"
                 android:layout_centerVertical="true"
-                android:layout_alignParentStart="true"/>
+                android:layout_centerInParent="true"/>
             <TextView
                 android:id="@+id/add_status"
                 android:layout_width="wrap_content"

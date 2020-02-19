@@ -51,6 +51,13 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_menu);
 
+        /*
+        * cuisine name
+        * cuisine price
+        * cuisine ratings [ 5, 4, 3, 2, 1 star << peoples >> ]
+        * total orders
+        * */
+
         mAuth = FirebaseAuth.getInstance();
 
         initViews();

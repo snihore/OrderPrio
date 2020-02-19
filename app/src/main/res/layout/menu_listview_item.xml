@@ -4,34 +4,61 @@
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:background="@drawable/round_bg06"
-        android:elevation="5dp"
-        android:padding="10dp">
-        <TextView
-            android:id="@+id/listview_item_cuisine_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/layout07">
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:text=""
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="10dp"/>
+            android:orientation="horizontal"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:id="@+id/listview_item_cuisine_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="cursive"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="MANCHURIAM"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:text="(36)"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/listview_item_cuisine_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:textSize="14sp"
-            android:textColor="@android:color/holo_orange_light"
-            android:layout_gravity="center_horizontal"
-            android:text=""/>
-    </LinearLayout>
-
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:text="\u20B9 100"
+            android:background="@drawable/round_bg07"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
 
 </RelativeLayout>

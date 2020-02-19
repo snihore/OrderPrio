@@ -60,7 +60,7 @@ public class OptionActivity extends AppCompatActivity {
             Toast.makeText(this, "User not found ...", Toast.LENGTH_SHORT).show();
             return null;
         }
-        String customer ="";
+        String customer = null;
         if(mAuth.getCurrentUser().getEmail() != null && !mAuth.getCurrentUser().getEmail().matches("")){
             customer = mAuth.getCurrentUser().getEmail();
         }
@@ -117,21 +117,11 @@ public class OptionActivity extends AppCompatActivity {
     }
 
     private void saveCustomerInfo() {
-        if(mAuth.getCurrentUser() == null){
-            Toast.makeText(this, "User not found ...", Toast.LENGTH_SHORT).show();
+        if(getUser() == null){
             return;
         }
-        String customer ="";
-        if(mAuth.getCurrentUser().getEmail() != null && !mAuth.getCurrentUser().getEmail().matches("")){
-            customer = mAuth.getCurrentUser().getEmail();
-        }
-        if(mAuth.getCurrentUser().getPhoneNumber() != null && !mAuth.getCurrentUser().getPhoneNumber().matches("")){
-            customer = mAuth.getCurrentUser().getPhoneNumber();
-        }
-        if(customer.matches("")){
-            Toast.makeText(this, "User not found ...", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        String customer = getUser();
+
         activateProgress(true);
         Map<String, String> map = new HashMap<>();
         documentReference.collection(customer).document("OrderHistory").set(map)
@@ -154,13 +144,16 @@ public class OptionActivity extends AppCompatActivity {
     private void goToCustomerDashboard() {
         Intent intent = new Intent(getApplicationContext(), CustomerDashboard.class);
         startActivity(intent);
+        finish();
     }
     private void goToShopRegistration(){
         Intent intent = new Intent(getApplicationContext(), ShopRegistration.class);
         startActivity(intent);
+        finish();
     }
     private void goToShopDashboard(){
         Intent intent = new Intent(getApplicationContext(), ShopDashboard.class);
         startActivity(intent);
+        finish();
     }
 }

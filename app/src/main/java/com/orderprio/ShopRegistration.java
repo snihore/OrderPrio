@@ -189,6 +189,7 @@ public class ShopRegistration extends AppCompatActivity implements View.OnClickL
                         Toast.makeText(ShopRegistration.this, "Data Saved Successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), ShopDashboard.class);
                         startActivity(intent);
+                        finish();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
