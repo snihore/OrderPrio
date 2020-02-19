@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentStart="true"
-        android:background="@color/colorPrimaryDark">
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/layout08">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -29,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textColor="@android:color/white"
-                android:fontFamily="cursive"
+                android:fontFamily="monospace"
                 android:text="OrderPrio"
                 android:textStyle="bold"
                 android:paddingLeft="10dp"
@@ -56,5 +57,52 @@
                 android:padding="10dp"
                 android:id="@+id/customer_logout_btn" />
         </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout08">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="18sp"
+            android:fontFamily="monospace"
+            android:text="Scan Shop's QR"
+            android:background="@drawable/round_bg09"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/cust_dash_show_shop_name"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/cust_dash_show_shop_name"
+            android:background="#eaeaea"
+            android:id="@+id/layout09"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:fontFamily="monospace"
+            android:text="Today's Special"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/layout09"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/layout10"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layout10"
+            android:id="@+id/cust_dash_show_items_list"
+            android:visibility="invisible"/>
     </RelativeLayout>
 </RelativeLayout>

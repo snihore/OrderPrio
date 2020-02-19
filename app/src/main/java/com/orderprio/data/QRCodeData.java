@@ -5,6 +5,9 @@ public class QRCodeData {
     private String shopID;
     private String uniqueID;
 
+    public QRCodeData() {
+    }
+
     public QRCodeData(String shopID, String uniqueID) {
         this.shopID = shopID;
         this.uniqueID = uniqueID;

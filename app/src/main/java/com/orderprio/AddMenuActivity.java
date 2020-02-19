@@ -25,12 +25,15 @@ import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.orderprio.data.ShopMenuData;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.annotation.Nullable;
@@ -75,7 +78,11 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         if(collectionReference == null){
             return;
         }
-        CollectionReference reference = collectionReference.document("MenuData").collection("ItemList");
+        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        if(date == null){
+            date = "ItemList";
+        }
+        CollectionReference reference = collectionReference.document("MenuData").collection(date);
 
         listenerRegistration = reference.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -169,7 +176,11 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
 
         addStatus.setText("wait...");
 
-        DocumentReference reference = collectionReference.document("MenuData").collection("ItemList").document(cuisineName);
+        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        if(date == null){
+            date = "ItemList";
+        }
+        DocumentReference reference = collectionReference.document("MenuData").collection(date).document(cuisineName);
 
         ShopMenuData shopMenuData = new ShopMenuData(cuisineName, cuisinePrice, true);
 
