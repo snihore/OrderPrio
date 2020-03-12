@@ -79,26 +79,49 @@ public class OptionActivity extends AppCompatActivity {
             return;
         }
         activateProgress(true);
-        FirebaseFirestore
+
+
+        documentReference.collection(getUser()).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                if(e != null){
+                    activateProgress(false);
+                    e.printStackTrace();
+                    Toast.makeText(OptionActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }else{
+                    if(queryDocumentSnapshots.getDocuments().isEmpty()){
+                        find();
+                    }else{
+                        activateProgress(false);
+                        Toast.makeText(OptionActivity.this, "Entered Account is Customer Type ...", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+    }
+
+    private void find() {
+        DocumentReference shopDocumentRef = FirebaseFirestore
                 .getInstance()
                 .collection("OrderPrio")
-                .document("Shop")
-                .collection(getUser()).addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                        activateProgress(false);
-                        if(e != null){
-                                 activateProgress(false);
-                                 Toast.makeText(OptionActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                             }else{
-                                 if(queryDocumentSnapshots.getDocuments().isEmpty()){
-                                     goToShopRegistration();
-                                 }else{
-                                     goToShopDashboard();
-                                 }
-                             }
+                .document("Shop");
+        shopDocumentRef.collection(getUser()).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                activateProgress(false);
+                if(e != null){
+//                    activateProgress(false);
+                    Toast.makeText(OptionActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }else{
+                    if(queryDocumentSnapshots.getDocuments().isEmpty()){
+                        goToShopRegistration();
+                    }else{
+                        goToShopDashboard();
                     }
-                });
+                }
+            }
+        });
     }
 
     private void customProgressBar(){
@@ -117,14 +140,36 @@ public class OptionActivity extends AppCompatActivity {
     }
 
     private void saveCustomerInfo() {
-        if(getUser() == null){
+        if(getUser() == null) {
             return;
         }
-        String customer = getUser();
-
         activateProgress(true);
+
+        FirebaseFirestore
+                .getInstance()
+                .collection("OrderPrio")
+                .document("Shop").collection(getUser()).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                if(e != null){
+                    activateProgress(false);
+                    e.printStackTrace();
+                    Toast.makeText(OptionActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }else{
+                    if(queryDocumentSnapshots.getDocuments().isEmpty()){
+                        customerInfo();
+                    }else{
+                        activateProgress(false);
+                        Toast.makeText(OptionActivity.this, "Entered Account is Shop Type ...", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+    }
+    private void customerInfo(){
         Map<String, String> map = new HashMap<>();
-        documentReference.collection(customer).document("OrderHistory").set(map)
+        documentReference.collection(getUser()).document("OrderHistory").set(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
