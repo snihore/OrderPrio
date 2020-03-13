@@ -47,7 +47,7 @@ public class CustomerDashboard extends AppCompatActivity implements View.OnClick
     private FirebaseAuth mAuth;
     private ListenerRegistration listenerRegistration;
 
-    private Cart cartData = new Cart();
+    private Cart cartData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +126,7 @@ public class CustomerDashboard extends AppCompatActivity implements View.OnClick
 
                                 //Get Shop's Food Items ...
                                 if(qrCodeData != null && qrCodeData.getShopID() != null && !qrCodeData.getShopID().matches("")){
+                                    cartData = new Cart(qrCodeData.getShopID());
                                     getScannedShopData(qrCodeData.getShopID());
                                 }else{
                                     Toast.makeText(CustomerDashboard.this, "Shop Not Found ...", Toast.LENGTH_SHORT).show();

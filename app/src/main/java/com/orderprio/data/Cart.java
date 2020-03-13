@@ -11,9 +11,11 @@ public class Cart implements Serializable {
     private HashMap<String, Integer> cuisineQuantities;
     private HashMap<String, Integer> cuisinePrices;
     private int totalItems;
+    private String shopID;
 
-    public Cart() {
+    public Cart(String shopID) {
 
+        this.shopID = shopID;
         cuisineNames = new HashSet<>();
         cuisineQuantities = new HashMap<>();
         cuisinePrices = new HashMap<>();
@@ -58,5 +60,9 @@ public class Cart implements Serializable {
 
     public int getTotalItems() {
         return totalItems;
+    }
+
+    public String getShopID() {
+        return shopID;
     }
 }

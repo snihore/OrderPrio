@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ShopDashboard extends AppCompatActivity implements View.OnClickListener {
 
-    private LinearLayout addMenuBtn, qrCodeBtn, settingsBtn;
+    private LinearLayout addMenuBtn, qrCodeBtn, settingsBtn, paymentsBtn;
     private FirebaseAuth mAuth;
 
     @Override
@@ -27,6 +27,7 @@ public class ShopDashboard extends AppCompatActivity implements View.OnClickList
         addMenuBtn.setOnClickListener(this);
         qrCodeBtn.setOnClickListener(this);
         settingsBtn.setOnClickListener(this);
+        paymentsBtn.setOnClickListener(this);
 
     }
 
@@ -34,6 +35,7 @@ public class ShopDashboard extends AppCompatActivity implements View.OnClickList
         addMenuBtn = (LinearLayout)findViewById(R.id.add_menu_layout_btn);
         qrCodeBtn = (LinearLayout)findViewById(R.id.qr_code_layout_btn);
         settingsBtn = (LinearLayout)findViewById(R.id.settings_layout_btn);
+        paymentsBtn = (LinearLayout)findViewById(R.id.payments_layout_btn);
     }
 
     @Override
@@ -53,6 +55,10 @@ public class ShopDashboard extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.settings_layout_btn:
                 logoutOps();
+                break;
+            case R.id.payments_layout_btn:
+                intent = new Intent(getApplicationContext(), ShopPaymentsActivity.class);
+                startActivity(intent);
                 break;
         }
     }
