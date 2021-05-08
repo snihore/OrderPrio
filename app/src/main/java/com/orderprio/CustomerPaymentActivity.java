@@ -92,7 +92,7 @@ public class CustomerPaymentActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 ShopPaymentData shopPaymentData = documentSnapshot.toObject(ShopPaymentData.class);
-                                if(shopPaymentData.getShopID().matches(shopID)){
+                                if(shopPaymentData != null && shopPaymentData.getShopID().matches(shopID)){
                                     hashMap.put("upi_name", shopPaymentData.getUpiName());
                                     hashMap.put("upi_id", shopPaymentData.getUpiID());
 

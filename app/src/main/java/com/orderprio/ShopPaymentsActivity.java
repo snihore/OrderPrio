@@ -56,7 +56,7 @@ public class ShopPaymentsActivity extends AppCompatActivity implements View.OnCl
                             @Override
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 ShopPaymentData shopPaymentData = documentSnapshot.toObject(ShopPaymentData.class);
-                                if(shopPaymentData.getShopID().matches(getUser())){
+                                if(shopPaymentData != null && shopPaymentData.getShopID().matches(getUser())){
                                     name.setText(shopPaymentData.getUpiName());
                                     upiID.setText(shopPaymentData.getUpiID());
                                     saveBtn.setText("Save");
